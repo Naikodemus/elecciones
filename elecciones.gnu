@@ -43,9 +43,9 @@ set output "elecciones.eps"
 # # # #
 
 plot \
-     './evolucion.dat' using (T(1)) : ($2) smooth csplines ls 10 title "POB (mill.)", \
      './evolucion.dat' using (T(1)) : ($4/$2)*100 with impulses ls 1 title "", \
      './evolucion.dat' using (T(1)) : ($4/$2)*100 with lines ls 1 title " % VOTOS/POB", \
+     './evolucion.dat' using (T(1)) : ($2) smooth csplines ls 10 title "POB (mill.)", \
      './evolucion.dat' using (T(1)) : ($5/$2)*100 with lines ls 2 title "UCD/CDS", \
      './evolucion.dat' using (T(1)) : ($5/$2)*100 with points ls 2 title "", \
      './evolucion.dat' using (T(1)) : ($6/$2)*100 with lines ls 3 title "PSOE", \
