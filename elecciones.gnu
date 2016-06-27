@@ -33,6 +33,7 @@ set style line 7 lw 1.5 lc rgb '#4B0082' dt 1 pt 5 ps 1.25
 set style line 8 lw 1.5 lc rgb 'orange' dt 1 pt 5 ps 1.25
 
 set style line 10 lw 5.0 lc rgb '#778899' dt 2 pt 5 ps 1.25
+set style line 11 lw 5.0 lc rgb '#778899' dt 2 pt 10 ps 1.25
 
 set style arrow 1 heads size screen 0.0075, 90 lw 1.5 lc rgb '#C0C0C0' dt 1
 
@@ -48,7 +49,7 @@ set output "elecciones.eps"
 plot \
      './evolucion.dat' using (T(1)) : ($4/$2)*100 with impulses ls 1 title "", \
      './evolucion.dat' using (T(1)) : ($4/$2)*100 with lines ls 1 title " % VOTOS/POB", \
-     './evolucion.dat' using (T(1)) : ($2) smooth csplines ls 10 title "POB (mill.)", \
+     './evolucion.dat' using (T(1)) : ($2) smooth csplines ls 10 title "POBLACIÓN (en mill.)", \
      './evolucion.dat' using (T(1)) : ($5/$2)*100 with lines ls 2 title "UCD/CDS", \
      './evolucion.dat' using (T(1)) : ($5/$2)*100 with points ls 2 title "", \
      './evolucion.dat' using (T(1)) : ($6/$2)*100 with lines ls 3 title "PSOE", \
@@ -59,10 +60,12 @@ plot \
      './evolucion.dat' using (T(1)) : ($8/$2)*100 with points ls 5 title "", \
      './evolucion.dat' using (T(1)) : ($9/$2)*100 with lines ls 6 title "IU/UP", \
      './evolucion.dat' using (T(1)) : ($9/$2)*100 with points ls 6 title "", \
-     './evolucion.dat' using (T(1)) : ($10/$2)*100 with lines ls 7 title "Podemos", \
+     './evolucion.dat' using (T(1)) : ($10/$2)*100 with lines ls 7 title "PODEMOS", \
      './evolucion.dat' using (T(1)) : ($10/$2)*100 with points ls 7 title "", \
-     './evolucion.dat' using (T(1)) : ($11/$2)*100 with lines ls 8 title "Ciudadanos", \
+     './evolucion.dat' using (T(1)) : ($11/$2)*100 with lines ls 8 title "CIUDADANOS", \
      './evolucion.dat' using (T(1)) : ($11/$2)*100 with points ls 8 title "", \
      './presidentes.dat' using (T(1)) : (70) : (T(2))-(T(1)) : (0.0) with vector as 1 title "", \
      './presidentes.dat' using (T(1)) : (70) : 3 with labels left offset 0.75,-0.75 tc rgb '#999999' rotate by 0 title "", \
-     './presidentes.dat' using (T(1)) : (70) : 4 with labels left offset 1.0,0.5 tc rgb '#999999' rotate by 45 title ""
+     './presidentes.dat' using (T(1)) : (70) : 4 with labels left offset 1.0,0.5 tc rgb '#999999' rotate by 45 title "", \
+     './eventos.dat' using (T(1)) : (70) with points ls 11 title "", \
+     './eventos.dat' using (T(1)) : (70) : 2 with labels right offset 0.0,-1.25 tc rgb '#778899' rotate by 90 title ""
