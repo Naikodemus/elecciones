@@ -5,7 +5,9 @@
 set title "Parlamento"
 set border 1
 
-set key left
+set rmargin at screen 0.975
+
+set key right
 set grid back lc rgb 'gray' dt 5
 set yrange [0:100]
 
@@ -32,6 +34,7 @@ set style line 8 lw 1.5 lc rgb 'orange' dt 1 pt 5 ps 1.25
 
 set style line 10 lw 5.0 lc rgb '#778899' dt 2 pt 5 ps 1.25
 
+set style arrow 1 heads size screen 0.0075, 90 lw 1.5 lc rgb '#C0C0C0' dt 1
 
 set termoption enhanced
 save_encoding = GPVAL_ENCODING
@@ -59,4 +62,7 @@ plot \
      './evolucion.dat' using (T(1)) : ($10/$2)*100 with lines ls 7 title "Podemos", \
      './evolucion.dat' using (T(1)) : ($10/$2)*100 with points ls 7 title "", \
      './evolucion.dat' using (T(1)) : ($11/$2)*100 with lines ls 8 title "Ciudadanos", \
-     './evolucion.dat' using (T(1)) : ($11/$2)*100 with points ls 8 title ""
+     './evolucion.dat' using (T(1)) : ($11/$2)*100 with points ls 8 title "", \
+     './presidentes.dat' using (T(1)) : (70) : (T(2))-(T(1)) : (0.0) with vector as 1 title "", \
+     './presidentes.dat' using (T(1)) : (70) : 3 with labels left offset 0.75,-0.75 tc rgb '#999999' rotate by 0 title "", \
+     './presidentes.dat' using (T(1)) : (70) : 4 with labels left offset 1.0,0.5 tc rgb '#999999' rotate by 45 title ""
